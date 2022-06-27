@@ -1,0 +1,15 @@
+
+<h1 class="bg-light my-2">Company name : {{companyDetails?.name}}</h1>
+<!-- <h1 class="bg-light my-2">Company name : {{companyDetails?.logo}}</h1> -->
+<img src="{{companyDetails?.logo}}" alt="companyDetails" class="m-3">
+<img [src]="companyDetails?.logo" alt="companyDetails with property pinding" class="m-3">
+<br>
+<button class="btn btn-danger" (click)="toggleServices()">Toggle Services</button>
+
+<div class="isVisible" [hidden]="!servicesVisible">
+
+    <h2 class="bg-light my-2" >Servies :</h2>
+    <ul>
+        <li *ngFor="let item of companyDetails?.services">{{item}}</li><!-- Funstionally directive -->
+    </ul>
+</div>
