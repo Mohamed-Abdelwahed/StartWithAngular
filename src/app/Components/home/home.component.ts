@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from 'src/app/ViewModels/Iproduct';
+import { IProduct } from 'src/app/ViewModels/iproduct';
+// import { IProduct } from 'src/app/ViewModels/Iproduct';
 import { CompanyInfo } from '../../Shared/company-info';
+
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
+
+
 export class HomeComponent {
-  companyDetails: CompanyInfo | undefined;
-
+  companyDetails: CompanyInfo  ;
   mainProducts: IProduct[];
-
-  servicesVisible: boolean | undefined;
+  servicesVisible: boolean ;
 
   constructor() {
     this.servicesVisible = true;
@@ -20,8 +22,12 @@ export class HomeComponent {
     this.companyDetails = new CompanyInfo(
       'ITICompany',
       'https://picsum.photos/250/250',
-      services
+      services , 10000000
     );
+
+    this.companyDetails.capital = 20000;
+    
+    this.companyDetails.establishDate = new Date();
 
     this.mainProducts = [
       { ID: 1, Name: 'Phone', Quantity: 1, Price: 1000 },

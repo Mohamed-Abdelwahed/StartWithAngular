@@ -6,7 +6,9 @@ export class CompanyInfo {
 
 constructor(public name: string ,
      public logo: string ,
-      public services: string[]){
+      public services: string[],
+      public capital?:number,
+      public establishDate?: Date){
         
 }
     
