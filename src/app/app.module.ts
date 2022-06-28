@@ -9,7 +9,7 @@ import { ContentComponent } from './Components/LayoutComponents/content/content/
 import { HomeComponent } from './Components/home/home.component';
 
 @NgModule({
-  declarations: [
+  declarations: [       
     AppComponent,
     HeaderComponent,
     FooterComponent,

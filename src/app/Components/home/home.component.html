@@ -3,7 +3,9 @@
 <!-- <h1 class="bg-light my-2">Company name : {{companyDetails?.logo}}</h1> -->
 <img src="{{companyDetails?.logo}}" alt="companyDetails" class="m-3">
 <img [src]="companyDetails?.logo" alt="companyDetails with property pinding" class="m-3">
+
 <br>
+
 <button class="btn btn-danger" (click)="toggleServices()">Toggle Services</button>
 
 <div class="isVisible" [hidden]="!servicesVisible">
@@ -12,4 +14,36 @@
     <ul>
         <li *ngFor="let item of companyDetails?.services">{{item}}</li><!-- Funstionally directive -->
     </ul>
+    
 </div>
+<h3>List of our main products</h3>
+
+<table class="table table-dark table-hover">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let product of mainProducts; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{product.Name}}</td>
+            <td>
+                <!-- <div *ngIf="product.Quantity>0">{{product.Quantity}}</div>
+                <div *ngIf="product.Quantity==0">Out of stock</div> -->
+
+                <div [ngSwitch]="product.Quantity">
+                    <div *ngSwitchCase="0">out of stock</div>
+                    <div *ngSwitchCase="1">Last Item</div>
+                    <div *ngSwitchDefault>{{product.Quantity}}</div>
+                </div>
+            </td>
+            <td>{{product.Price}}</td>
+          </tr>
+          
+        </tbody>
+  </table>
